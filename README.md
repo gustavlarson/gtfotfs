@@ -16,8 +16,8 @@ gtfotfs is a Bash 4 script and needs
   - From now on, `tf` uses the saved credentials. gtfotfs assumes `tf` uses saved credentials.
 - `jq` (JSON query tool)
   - Install via your package manager, e.g. `apt install jq`.
-- `xml2json`
-  - Install via `pip install https://github.com/hay/xml2json/zipball/master`.
+- `yq`
+  - Install using instructions from [here](https://github.com/mikefarah/yq/).
 - `git`
   - Use a recent version from the Git PPA!
 
