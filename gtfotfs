@@ -195,7 +195,7 @@ function gtfotfs::get_tfs_history() {
 }
 
 function gtfotfs::convert_history() {
-  if ! yq -p=xml -o=json --xml-attribute-prefix="@" "${GT_HISTORY}" >"${GT_HISTORY}.json"; then
+  if ! yq -p=xml -o=json --xml-attribute-prefix="@" "${GT_HISTORY}" | jq '.history.changeset | if type=="array" then . else [.] end | . as $cs | { history: {changeset: $cs }}' >"${GT_HISTORY}.json"; then
     gtfotfs::error "Unable to convert history to json. See file ${GT_HISTORY}."
   fi
 
